@@ -1,5 +1,7 @@
 (function() {
   let canvas = document.createElement('canvas')
+  let camera
+  let scene
   ctx = canvas.getContext('2d')
   w = canvas.width = innerWidth
   h = canvas.height = innerHeight
@@ -28,6 +30,13 @@
 
   document.body.appendChild(canvas);
 
+  controls = new THREE.TrackballControls(camera);
+
+  controls.rotateSpeed = 1.0;
+  controls.zoomSpeed = 1.2;
+  controls.panSpeed = 0.8;
+  controls.staticMoving = false;
+  controls.dynamicDampingFactor = 0.3;
 
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
